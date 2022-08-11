@@ -1,5 +1,6 @@
 {% set name = "backoff" %}
 {% set version = "2.1.2" %}
+{% set sha256 = "407f1bc0f22723648a8880821b935ce5df8475cf04f7b6b5017ae264d30f6069" %}
 
 package:
   name: {{ name|lower }}
@@ -14,14 +15,15 @@ build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
-
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python
+    - setuptools
+    - wheel
     - poetry-core >=1.0.0
   run:
-    - python >=3.7
+    - python
 
 test:
   imports:
@@ -30,7 +32,6 @@ test:
     - pip check
   requires:
     - pip
-
 
 about:
   home: https://github.com/litl/backoff
@@ -44,6 +45,8 @@ about:
     intermittent failures i.e. network resources and external APIs. Somewhat more generally, it may also be of use for
     dynamically polling resources for externally generated content.
   dev_url: https://github.com/litl/backoff
+  doc_url: https://github.com/litl/backoff/blob/master/README.rst
+  doc_source_url: https://github.com/litl/backoff/blob/master/README.rst
 
 extra:
   recipe-maintainers:

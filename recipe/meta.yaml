@@ -1,6 +1,6 @@
 {% set name = "backoff" %}
-{% set version = "2.1.2" %}
-{% set sha256 = "407f1bc0f22723648a8880821b935ce5df8475cf04f7b6b5017ae264d30f6069" %}
+{% set version = "1.11.1" %}
+{% set sha256 = "ccb962a2378418c667b3c979b504fdeb7d9e0d29c0579e3b13b86467177728cb" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 407f1bc0f22723648a8880821b935ce5df8475cf04f7b6b5017ae264d30f6069
+  sha256: {{ sha256 }}
 
 build:
   # noarch: python

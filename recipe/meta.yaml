@@ -1,6 +1,6 @@
 {% set name = "backoff" %}
-{% set version = "1.11.1" %}
-{% set sha256 = "ccb962a2378418c667b3c979b504fdeb7d9e0d29c0579e3b13b86467177728cb" %}
+{% set version = "2.2.1" %}
+{% set sha256 = "03f829f5bb1923180821643f8753b0502c3b682293992485b0eef2807afa5cba" %}
 
 package:
   name: {{ name|lower }}
@@ -39,6 +39,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
+  license_url: https://github.com/litl/backoff/blob/master/LICENSE
   summary: Function decoration for backoff and retry
   description: |
     This module provides function decorators which can be used to wrap a function such that it will be retried until

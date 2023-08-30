@@ -1,6 +1,5 @@
 {% set name = "backoff" %}
 {% set version = "2.2.1" %}
-{% set sha256 = "03f829f5bb1923180821643f8753b0502c3b682293992485b0eef2807afa5cba" %}
 
 package:
   name: {{ name|lower }}
@@ -8,38 +7,34 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 03f829f5bb1923180821643f8753b0502c3b682293992485b0eef2807afa5cba
 
 build:
-  # noarch: python
-  number: 0
-  skip: true  # [py<37]
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  number: 1
+  skip: True  # [py<37]
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
     - pip
     - python
-    - setuptools
-    - wheel
-    - poetry-core >=1.0.0
+    - poetry-core
   run:
     - python
 
 test:
   imports:
     - backoff
-  commands:
-    - pip check
   requires:
     - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/litl/backoff
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  license_url: https://github.com/litl/backoff/blob/master/LICENSE
   summary: Function decoration for backoff and retry
   description: |
     This module provides function decorators which can be used to wrap a function such that it will be retried until
@@ -48,7 +43,6 @@ about:
     dynamically polling resources for externally generated content.
   dev_url: https://github.com/litl/backoff
   doc_url: https://github.com/litl/backoff/blob/master/README.rst
-  doc_source_url: https://github.com/litl/backoff/blob/master/README.rst
 
 extra:
   recipe-maintainers:

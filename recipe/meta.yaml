@@ -11,10 +11,9 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  # noarch: python
-  number: 0
-  skip: true  # [py<37]
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  number: 1
+  skip: true  # [py<38]
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
